@@ -16,10 +16,18 @@ class Ride
   end
  
   def board_rider(visitor)
-    # visitor.spending_money - @admission_fee
-    # unless visitor.wee == true
-    #    @rider_log[visitor] += 1 
-       visitor.wee = true
+    # require 'pry'; binding.pry
+    if @rider_log.include?(visitor) || visitor.wee == false
+      @rider_log[visitor] += 1 
+      visitor.wee = true
     end
+    # visitor.spending_money -= @admission_fee
+    @total_revenue += @admission_fee
   end
 end
+
+# # visitor.spending_money - @admission_fee
+# # unless visitor.wee == true
+# #    @rider_log[visitor] += 1 
+#    visitor.wee = true
+# # end
