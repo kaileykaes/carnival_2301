@@ -16,6 +16,11 @@ RSpec.describe do
     expect(@visitor1.preferences).to eq([])
   end
 
+  it 'can add preferences' do 
+    @visitor1.add_preference(:gentle)
+    expect(@visitor1.add_preference(:water)).to eq([:gentle, :water])
+  end
+
   it 'determines acceptable height' do
     expect(@visitor2.tall_enough?).to eq(false)
     expect(@visitor1.tall_enough?).to eq(true)
