@@ -39,10 +39,19 @@ RSpec.describe do
     expect(@ride1.total_revenue).to eq(0)
   end
 
-  it 'boards riders and logs them' do
+  it 'boards riders and logs them, charges visitor admission' do
     @ride1.board_rider(@visitor1)
     @ride1.board_rider(@visitor2)
     @ride1.board_rider(@visitor1)
     expect(@ride1.rider_log).to eq({@visitor1 => 2, @visitor2 => 1})
+    # expect(@visitor2.spending_money).to eq(4)
+  end
+
+  it 'boards only available riders & earns money' do
+    @ride3.board_rider(@visitor1)
+    @ride3.board_rider(@visitor2)
+    @ride3.board_rider(@visitor3)
+    expect(@ride3.rider_log).to eq({@visitor3 => 1})
+    expect(@ride3.total_revenue).to eq(2)
   end
 end
