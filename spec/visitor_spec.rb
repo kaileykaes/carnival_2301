@@ -17,7 +17,7 @@ RSpec.describe do
   end
 
   it 'determines acceptable height' do
-    expect(@visitor3.tall_enough?).to eq(false)
+    expect(@visitor2.tall_enough?).to eq(false)
     expect(@visitor1.tall_enough?).to eq(true)
   end
 
