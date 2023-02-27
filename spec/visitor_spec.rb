@@ -1,5 +1,6 @@
 require 'rspec'
 require './lib/visitor'
+require './lib/ride'
 
 RSpec.describe do 
   before(:each) do 
@@ -26,4 +27,14 @@ RSpec.describe do
     expect(@visitor1.tall_enough?).to eq(true)
   end
 
+  it "knows it's on a ride" do 
+    ride1 = Ride.new({ 
+      name: 'Carousel', 
+      min_height: 24, 
+      admission_fee: 1, 
+      excitement: :gentle 
+      })
+    ride1.board_rider(@visitor1)
+    expect(@visitor.wee).to eq(true)
+  end
 end
