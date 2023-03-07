@@ -46,21 +46,21 @@ RSpec.describe do
     expect(@ride1.rider_log).to eq({@visitor1 => 2, @visitor2 => 1})
   end
   
-  xit 'charges visitor admission' do
+  it 'charges visitor admission' do
     @ride1.board_rider(@visitor1)
     @ride1.board_rider(@visitor2)
     @ride1.board_rider(@visitor1)
     expect(@visitor2.spending_money).to eq(4)
   end
 
-  xit 'boards only available riders & earns money' do
+  it 'boards only available riders & earns money' do
     @ride1.board_rider(@visitor1)
     @ride1.board_rider(@visitor2)
     # require 'pry'; binding.pry
     @ride3.board_rider(@visitor1)
     @ride3.board_rider(@visitor2)
     @ride3.board_rider(@visitor3)
-    # require 'pry'; binding.pry
+    require 'pry'; binding.pry
     expect(@ride3.rider_log).to eq({@visitor3 => 1})
     # expect(@ride3.total_revenue).to eq(2)
   end
