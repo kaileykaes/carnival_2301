@@ -7,6 +7,12 @@ RSpec.describe do
     @visitor1 = Visitor.new('Bruce', 54, '$10')
     @visitor2 = Visitor.new('Tucker', 36, '$5')
     @visitor3 = Visitor.new('Penny', 64, '$15')
+    @ride1 = Ride.new({ 
+      name: 'Carousel', 
+      min_height: 24, 
+      admission_fee: 1, 
+      excitement: :gentle 
+      })
   end
 
   it 'exists and has attributes' do
@@ -28,19 +34,9 @@ RSpec.describe do
   end
 
   describe "knows it's on a ride" do 
-
-    it 'has wee potential' do 
-      expect(@visitor1.wee).to eq(false)
-    end
-
-    xit 'can board a ride' do 
-      ride1 = Ride.new({ 
-        name: 'Carousel', 
-        min_height: 24, 
-        admission_fee: 1, 
-        excitement: :gentle 
-        })
-      ride1.board_rider(@visitor1)
+    it 'can board a ride' do 
+      @ride1.board_rider(@visitor1)
+      expect(@ride1.rider_log).to eq({@visitor1 => 1})
       expect(@visitor1.wee).to eq(true)
     end
   end
