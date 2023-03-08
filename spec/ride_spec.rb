@@ -62,6 +62,6 @@ RSpec.describe do
     @ride3.board_rider(@visitor3)
     require 'pry'; binding.pry
     expect(@ride3.rider_log).to eq({@visitor3 => 1})
-    # expect(@ride3.total_revenue).to eq(2)
+    expect(@ride3.total_revenue).to eq(2)
   end
 end

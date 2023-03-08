@@ -58,7 +58,6 @@ RSpec.describe do
     @ride1.board_rider(@visitor2)
     @ride1.board_rider(@visitor1)
     @ride3.board_rider(@visitor2)
-    require 'pry'; binding.pry
   expect(@county_fair.popular).to eq(@ride1)
   end
 end
